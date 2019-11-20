@@ -5,5 +5,7 @@
 * ~~send video-course-angularjs to Github (jwang-wft) repository~~ 
 * insert data into lesson database (MySQL)
 * Running video-course (spring & angulrjs) on Windows 10 OS
+* Testing CRUD on video-course;
+* Fix running issue on MacOS
 
 ## Chinese School

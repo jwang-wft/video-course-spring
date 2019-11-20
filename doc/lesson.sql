@@ -2,6 +2,21 @@ use file_demo;
 select * from files;
 
 use lesson;
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 2);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 1);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "AngularJS动画字符显示", "assets/test.zip", 2, "assets/test.txt", "assets/Animation.mp4", 1);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 4);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Spring Boot数据库一对多方案", "assets/test.zip", 2, "assets/test.txt", "assets/Animation.mp4", 4);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Spring Boot数据库多对多方案", "assets/test.zip", 3, "assets/test.txt", "assets/Animation.mp4", 4);
+insert into lecture (created_at, updated_at, creator, title, zip_path, sequence,source_path, video_path, section_id) values (current_date(), current_date(), "John", "Vue语言第一讲", "vue.js", 1, "vue.txt", "vueStart.mp4", 1);
+select * from lecture;
+
+insert into class_user (username, password) values ('jwang@gmail.com', '$2a$10$Gm70oNYAp1XCl0tZPt7SVeWRL8c0POKRKS6VXdRHouhK8ARopoFxi');
+insert into class_user (username, password) values ('cwang@gmail.com', '$2a$10$Gm70oNYAp1XCl0tZPt7SVeWRL8c0POKRKS6VXdRHouhK8ARopoFxi');
+insert into class_user (username, password) values ('ailian.wang@hotmail.com', '$2a$10$Gm70oNYAp1XCl0tZPt7SVeWRL8c0POKRKS6VXdRHouhK8ARopoFxi');
+insert into class_user (username, password) values ('cwang@gmail.com', '$2a$10$Gm70oNYAp1XCl0tZPt7SVeWRL8c0POKRKS6VXdRHouhK8ARopoFxi');
+select * from class_user;
+
 select * from user;
 
 CREATE TABLE `user` (
@@ -59,14 +74,6 @@ CREATE TABLE `lecture` (
 
 ALTER TABLE lecture DROP COLUMN sequence;
 
-insert into lecture values (null, current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 2);
-insert into lecture values (null, current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 1);
-insert into lecture values (null, current_date(), current_date(), "John", "AngularJS动画字符显示", "assets/test.zip", 2, "assets/test.txt", "assets/Animation.mp4", 1);
-insert into lecture values (null, current_date(), current_date(), "John", "Eclipse开发环境安装", "assets/test.zip", 1, "assets/test.txt", "assets/Eclipse.mp4", 4);
-insert into lecture values (null, current_date(), current_date(), "John", "Spring Boot数据库一对多方案", "assets/test.zip", 2, "assets/test.txt", "assets/Animation.mp4", 4);
-insert into lecture values (null, current_date(), current_date(), "John", "Spring Boot数据库多对多方案", "assets/test.zip", 3, "assets/test.txt", "assets/Animation.mp4", 4);
-insert into lecture values (null, current_date(), current_date(), "John", "Vue语言第一讲", "vue.js", 1, "vue.txt", "vueStart.mp4", 1, "vue.png");
-select * from lecture;
 
 update lecture set poster = 'eclipse.jpg' where id<3;
 

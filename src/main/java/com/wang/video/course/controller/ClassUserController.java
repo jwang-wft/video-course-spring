@@ -2,7 +2,6 @@ package com.wang.video.course.controller;
 
 import java.util.Optional;
 
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wang.video.course.entity.ClassUser;
 import com.wang.video.course.exception.UserExistsException;
-import com.wang.video.course.exception.UserNotFoundException;
+import com.wang.video.course.jpa.ClassUserRepository;
 import com.wang.video.course.service.ClassUserService;
 
 @RestController()
@@ -26,12 +25,25 @@ public class ClassUserController {
 //	private static Logger logger = Logger.getLogger("ClassUserController");
 	@Autowired
 	ClassUserService userService;
-
+	@Autowired
+	ClassUserRepository userRepository;
+	
 	@GetMapping("/classusers/{username}")
 	public UserDetails getClassUser(@PathVariable String username) throws Exception {
 		return userService.loadUserByUsername(username);
 	}
 
+	@PostMapping("/classusers")
+	public ClassUser createUser(@RequestBody ClassUser user) throws Exception {
+		Optional<ClassUser> foundUser = userService.findByUsername(user.getUsername());
+		if (foundUser.isPresent()) {
+			throw new UserExistsException(String.format("User with email: %s already exists.", user.getUsername()));
+		}
+		user.setPassword(encoder.encode(user.getPassword()));
+		userRepository.save(user);
+		return user;
+	}
+	
 	@PostMapping("/classuser")
 	public ResponseEntity<ClassUser> createClassUser(@RequestBody ClassUser user) throws Exception {
 		Optional<ClassUser> foundUser = userService.findByUsername(user.getUsername());
