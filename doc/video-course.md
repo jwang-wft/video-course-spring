@@ -42,6 +42,9 @@ this is because the request parameters passed wrong.
 
 [Test Get a lecture by topic_id=1, section_id=1](http://localhost:8000/topics/1/sections/1/lectures/3)
 
+## Security
+[Implementation Reference](https://grokonez.com/spring-framework/spring-mvc/spring-security-config-security-mvc-web-spring-boot)
+
 [Test Get all topics](http://localhost:8000/topics)
 
 [Test Get all sections](http://localhost:8000/sections)
