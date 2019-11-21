@@ -13,14 +13,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 @Entity
-public class ClassUser implements UserDetails {
+public class ClassUser {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -49,13 +43,6 @@ public class ClassUser implements UserDetails {
     public void grantAuthority(String authority) {
         if ( roles == null ) roles = new ArrayList<>();
         roles.add(authority);
-    }
-
-    @Override
-    public List<GrantedAuthority> getAuthorities(){
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
-        return authorities;
     }
 
 	public long getId() {
