@@ -1,7 +1,16 @@
 # Video Course
+## Spring boot document
+[Spring boot pdf](https://docs.spring.io/spring-boot/docs/current/reference/pdf/spring-boot-reference.pdf)
+[Spring boot Reference](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/)
 
 ## Login & Encrypted Password
+@Configuration
+SecurityConfig.java
+override configure() method
 
+Encrypted Password:
+BCryptPasswordEncoder class
+to get password encrypted, debug unit test ClassUserTest
 
 ## Build
 
